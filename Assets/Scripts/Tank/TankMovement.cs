@@ -97,6 +97,11 @@ public class TankMovement : MonoBehaviour
         m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
     }
 
+    public void Jump(int jumpStrength)
+    {
+        m_Rigidbody.AddForce(transform.up * jumpStrength * 10);
+    }
+
 
     private void Turn()
     {
