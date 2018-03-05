@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class Powerups : MonoBehaviour {
 
-    enum Type : int {Jump=1, Damage=2, Other=3};//not sure what all the boosts will be
-    int powerupType;
+    public enum Type : int {Jump=1, Damage=2, Other=3};//not sure what all the boosts will be
+    public Type powerupType = Type.Jump;
 
     public int jumpStrength = 50;
+    public int powerupRespawnTime = 2;
 
 	// Use this for initialization
 	void Start () {
-		if(this.name.Contains("Jump"))
-        {
-            powerupType = (int)Type.Jump;
-        }
 	}
 	
 	// Update is called once per frame
@@ -24,10 +21,32 @@ public class Powerups : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(powerupType == (int)Type.Jump)
+        if(powerupType == Type.Jump)
         {
             other.GetComponent<TankMovement>().Jump(jumpStrength);
-            Debug.Log("jumped");
+            ResetPowerup();
+
         }
+    }
+
+    private void ResetPowerup()
+    {
+        StartCoroutine(LateCall());
+        Debug.Log("0");
+        gameObject.transform.Translate(Vector3.down * 20);
+    }
+    IEnumerator LateCall()
+    {
+        Debug.Log(powerupRespawnTime);
+
+        yield return new WaitForSeconds(powerupRespawnTime);
+        Debug.Log("2");
+        gameObject.transform.Translate(Vector3.up * 20);
+        Debug.Log("3");
+    }
+
+    private void OnDisable()
+    {
+        LateCall();
     }
 }
