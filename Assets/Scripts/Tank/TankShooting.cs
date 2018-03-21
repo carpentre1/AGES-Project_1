@@ -10,15 +10,17 @@ public class TankShooting : MonoBehaviour
     public AudioSource m_ShootingAudio;  
     public AudioClip m_ChargingClip;     
     public AudioClip m_FireClip;         
-    public float m_MinLaunchForce = 15f; 
-    public float m_MaxLaunchForce = 30f; 
-    public float m_MaxChargeTime = 0.75f;
+    public float m_MinLaunchForce = 12f; 
+    public float m_MaxLaunchForce = 25f; 
+    public float m_MaxChargeTime = 0.5f;
 
     
     private string m_FireButton;         
     private float m_CurrentLaunchForce;  
     private float m_ChargeSpeed;         
-    private bool m_Fired;                
+    private bool m_Fired;
+
+    int weaponType = 2;//1 is triple shot, 2 is cannon, 3 is artillery
 
 
     private void OnEnable()
@@ -33,6 +35,24 @@ public class TankShooting : MonoBehaviour
         m_FireButton = "Fire" + m_PlayerNumber;
 
         m_ChargeSpeed = (m_MaxLaunchForce - m_MinLaunchForce) / m_MaxChargeTime;
+
+        if(m_PlayerNumber == 1)
+        {
+            weaponType = PlayerPrefs.GetInt("PlayerOneWeapon");
+            Debug.Log("weapon type " + PlayerPrefs.GetInt("PlayerOneWeapon"));
+        }
+        if (m_PlayerNumber == 2)
+        {
+            weaponType = PlayerPrefs.GetInt("PlayerTwoWeapon");
+        }
+        if (m_PlayerNumber == 3)
+        {
+            weaponType = PlayerPrefs.GetInt("PlayerThreeWeapon");
+        }
+        if (m_PlayerNumber == 4)
+        {
+            weaponType = PlayerPrefs.GetInt("PlayerFourWeapon");
+        }
     }
     
 

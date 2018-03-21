@@ -16,6 +16,8 @@ public class TankManager
     private TankShooting m_Shooting;
     private GameObject m_CanvasGameObject;
 
+    public Title title;
+
 
     public void Setup()
     {

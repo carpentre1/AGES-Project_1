@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Title : MonoBehaviour {
 
@@ -9,24 +10,25 @@ public class Title : MonoBehaviour {
     //https://opengameart.org/content/xbox-360-pixel-art-controller-icons
     //CC-BY-SA 3.0
 
-    int numPlayers = 2;
+    int numPlayers = 0;
+    public float inputDelay = .3f;//the amount of time to prevent input when navigating between weapons
 
-    bool playerOneJoined = false;
-    bool playerTwoJoined = false;
-    bool playerThreeJoined = false;
-    bool playerFourJoined = false;
+    public bool playerOneJoined = false;
+    public bool playerTwoJoined = false;
+    public bool playerThreeJoined = false;
+    public bool playerFourJoined = false;
 
     bool playerOneInputDisabled = false;//momentarily disables left/right movement when selecting weapons so you don't scroll too fast
     bool playerTwoInputDisabled = false;
     bool playerThreeInputDisabled = false;
     bool playerFourInputDisabled = false;
 
-    enum WeaponType { Triple=1, Cannon=2, Artillery=3}//trying to figure out how to use enums effectively. i think this helps?
+    public enum WeaponType { Triple=1, Cannon=2, Artillery=3}//trying to figure out how to use enums effectively. i think this helps?
 
-    WeaponType playerOneWeapon = WeaponType.Cannon;
-    WeaponType playerTwoWeapon = WeaponType.Cannon;
-    WeaponType playerThreeWeapon = WeaponType.Cannon;
-    WeaponType playerFourWeapon = WeaponType.Cannon;
+    public WeaponType playerOneWeapon = WeaponType.Cannon;
+    public WeaponType playerTwoWeapon = WeaponType.Cannon;
+    public WeaponType playerThreeWeapon = WeaponType.Cannon;
+    public WeaponType playerFourWeapon = WeaponType.Cannon;
 
     string currentScreen = "Main Menu";
 
@@ -36,6 +38,13 @@ public class Title : MonoBehaviour {
     public GameObject playerPanels;
     public GameObject creditsPanel;
     public GameObject audioPanel;
+    public GameObject pressStartPanel; bool panelShown = false;
+    public GameObject variableRetainer;
+
+    public GameObject playerPanel1;
+    public GameObject playerPanel2;
+    public GameObject playerPanel3;
+    public GameObject playerPanel4;
 
     public GameObject weaponText1;
     public GameObject weaponText2;
@@ -57,6 +66,18 @@ public class Title : MonoBehaviour {
         playerPanels.SetActive(false);
 
     }
+    private void OnDestroy()// when the scene changes to the main game, save these variables so they can be used in the game
+    {
+        PlayerPrefs.SetInt("PlayerOneJoined", System.Convert.ToInt32(playerOneJoined));
+        PlayerPrefs.SetInt("PlayerTwoJoined", System.Convert.ToInt32(playerTwoJoined));
+        PlayerPrefs.SetInt("PlayerThreeJoined", System.Convert.ToInt32(playerThreeJoined));
+        PlayerPrefs.SetInt("PlayerFourJoined", System.Convert.ToInt32(playerFourJoined));
+
+        PlayerPrefs.SetInt("PlayerOneWeapon", System.Convert.ToInt32(playerOneWeapon));
+        PlayerPrefs.SetInt("PlayerTwoWeapon", System.Convert.ToInt32(playerTwoWeapon));
+        PlayerPrefs.SetInt("PlayerThreeWeapon", System.Convert.ToInt32(playerThreeWeapon));
+        PlayerPrefs.SetInt("PlayerFourWeapon", System.Convert.ToInt32(playerFourWeapon));
+    }
 
     public void StartJoinScreen()//when clicking "start" on main menu, show "press A to join" screen
     {
@@ -69,6 +90,10 @@ public class Title : MonoBehaviour {
             {
                 child.gameObject.SetActive(true);
             }
+            if (child.name == "PlayerWeaponPanel")
+            {
+                child.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -78,6 +103,21 @@ public class Title : MonoBehaviour {
         //load scene
     }
 
+    void ShowWeaponPanel(GameObject playerPanel)
+    {
+        foreach (Transform child in playerPanel.transform)
+        {
+            if (child.name == "JoinText" || child.name == "JoinImage")
+            {
+                child.gameObject.SetActive(false);
+            }
+            if (child.name == "PlayerWeaponPanel")
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
+    }
+
     void Update() {//listen for inputs from each controller, let players join if they press A, let them choose their weapon with left/right, start game if they push start button
         if (Input.GetButtonDown("Fire1"))
         {
@@ -85,6 +125,8 @@ public class Title : MonoBehaviour {
             if (!playerOneJoined && currentScreen == "Join")
             {
                 playerOneJoined = true;
+                numPlayers += 1;
+                ShowWeaponPanel(playerPanel1);
             }
         }
         if(Input.GetButtonDown("Cancel") && currentScreen == "Main Menu")//back button is 1 on xbox, 2 on ps4. fire is 0 on xbox, 1 on ps4
@@ -96,19 +138,46 @@ public class Title : MonoBehaviour {
         if (Input.GetButtonDown("Fire2"))
         {
             Debug.Log("player 2");
+            if (!playerTwoJoined && currentScreen == "Join")
+            {
+                playerTwoJoined = true;
+                numPlayers += 1;
+                ShowWeaponPanel(playerPanel2);
+            }
         }
         if (Input.GetButtonDown("Fire3"))
         {
             Debug.Log("player 3");
+            if (!playerThreeJoined && currentScreen == "Join")
+            {
+                playerThreeJoined = true;
+                numPlayers += 1;
+                ShowWeaponPanel(playerPanel3);
+            }
         }
         if (Input.GetButtonDown("Fire4"))
         {
             Debug.Log("player 4");
+            if (!playerFourJoined && currentScreen == "Join")
+            {
+                playerFourJoined = true;
+                numPlayers += 1;
+                ShowWeaponPanel(playerPanel4);
+            }
         }
-        if (Input.GetButtonDown("Submit") && numPlayers >= 2)
+        if (numPlayers >= 2 && !panelShown)
         {
-            Debug.Log("start");
+            pressStartPanel.SetActive(true);
+            Debug.Log("show it");
+            panelShown = true;
         }
+        if (Input.GetButtonDown("Start") && numPlayers >= 2)
+        {
+            Debug.Log("start " + numPlayers + playerOneJoined + playerTwoJoined + playerThreeJoined + playerFourJoined);
+            pressStartPanel.SetActive(true);
+            SceneManager.LoadScene(1);
+        }
+
 
         #region move left or right to choose weapon
         //there's clearly some better way to do this but i can't figure it out
@@ -177,9 +246,9 @@ public class Title : MonoBehaviour {
         }
     }
 
-    IEnumerator AxisInputDelay(int player)
+    IEnumerator AxisInputDelay(int player)//restores their ability to navigate weapon selection after a short delay
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(inputDelay);
         switch (player)
         {
             case 1: playerOneInputDisabled = false; break;
@@ -190,7 +259,7 @@ public class Title : MonoBehaviour {
     }
     #endregion
 
-    string WeaponText(bool isDescription, WeaponType weapon)//returns the name or description of the weapon.
+    string WeaponText(bool isDescription, WeaponType weapon)//returns the name or description of the weapon
     {
         if (isDescription)//if it's the description under the weapon
             if (weapon == WeaponType.Triple)

@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private WaitForSeconds m_StartWait;     
     private WaitForSeconds m_EndWait;       
     private TankManager m_RoundWinner;
-    private TankManager m_GameWinner;       
+    private TankManager m_GameWinner;
 
 
     private void Start()
@@ -41,6 +41,43 @@ public class GameManager : MonoBehaviour
                 Instantiate(m_TankPrefab, m_Tanks[i].m_SpawnPoint.position, m_Tanks[i].m_SpawnPoint.rotation) as GameObject;
             m_Tanks[i].m_PlayerNumber = i + 1;
             m_Tanks[i].Setup();
+            if (m_Tanks[i].m_PlayerNumber == 1)
+            {
+                if (PlayerPrefs.GetInt("PlayerOneJoined") == 0)
+                {
+                    Debug.Log("excluding " + m_Tanks[i].m_PlayerNumber);
+                    m_Tanks[i].DisableControl();
+                    m_Tanks[i].m_Instance.SetActive(false);
+
+                }
+            }
+            if (m_Tanks[i].m_PlayerNumber == 2)
+            {
+                if (PlayerPrefs.GetInt("PlayerTwoJoined") == 0)
+                {
+                    Debug.Log("excluding " + m_Tanks[i].m_PlayerNumber);
+                    m_Tanks[i].DisableControl();
+                    m_Tanks[i].m_Instance.SetActive(false);
+                }
+            }
+            if (m_Tanks[i].m_PlayerNumber == 3)
+            {
+                if (PlayerPrefs.GetInt("PlayerThreeJoined") == 0)
+                {
+                    Debug.Log("excluding " + m_Tanks[i].m_PlayerNumber);
+                    m_Tanks[i].DisableControl();
+                    m_Tanks[i].m_Instance.SetActive(false);
+                }
+            }
+            if (m_Tanks[i].m_PlayerNumber == 4)
+            {
+                if (PlayerPrefs.GetInt("PlayerFourJoined") == 0)
+                {
+                    Debug.Log("excluding " + m_Tanks[i].m_PlayerNumber);
+                    m_Tanks[i].DisableControl();
+                    m_Tanks[i].m_Instance.SetActive(false);
+                }
+            }
         }
     }
 
@@ -169,6 +206,39 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < m_Tanks.Length; i++)
         {
+            if (m_Tanks[i].m_PlayerNumber == 1)
+            {
+                if (PlayerPrefs.GetInt("PlayerOneJoined") == 0)
+                {
+                    Debug.Log("excluding " + m_Tanks[i].m_PlayerNumber);
+                    break;
+
+                }
+            }
+            if (m_Tanks[i].m_PlayerNumber == 2)
+            {
+                if (PlayerPrefs.GetInt("PlayerTwoJoined") == 0)
+                {
+                    Debug.Log("excluding " + m_Tanks[i].m_PlayerNumber);
+                    break;
+                }
+            }
+            if (m_Tanks[i].m_PlayerNumber == 3)
+            {
+                if (PlayerPrefs.GetInt("PlayerThreeJoined") == 0)
+                {
+                    Debug.Log("excluding " + m_Tanks[i].m_PlayerNumber);
+                    break;
+                }
+            }
+            if (m_Tanks[i].m_PlayerNumber == 4)
+            {
+                if (PlayerPrefs.GetInt("PlayerFourJoined") == 0)
+                {
+                    Debug.Log("excluding " + m_Tanks[i].m_PlayerNumber);
+                    break;
+                }
+            }
             message += m_Tanks[i].m_ColoredPlayerText + ": " + m_Tanks[i].m_Wins + " WINS\n";
         }
 
@@ -183,6 +253,42 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < m_Tanks.Length; i++)
         {
+            if (m_Tanks[i].m_PlayerNumber == 1)
+            {
+                if (PlayerPrefs.GetInt("PlayerOneJoined") == 0)
+                {
+                    Debug.Log("excluding " + m_Tanks[i].m_PlayerNumber);
+                    m_Tanks[i].DisableControl();
+                    break;
+                }
+            }
+            if (m_Tanks[i].m_PlayerNumber == 2)
+            {
+                if (PlayerPrefs.GetInt("PlayerTwoJoined") == 0)
+                {
+                    Debug.Log("excluding " + m_Tanks[i].m_PlayerNumber);
+                    m_Tanks[i].DisableControl();
+                    break;
+                }
+            }
+            if (m_Tanks[i].m_PlayerNumber == 3)
+            {
+                if (PlayerPrefs.GetInt("PlayerThreeJoined") == 0)
+                {
+                    Debug.Log("excluding " + m_Tanks[i].m_PlayerNumber);
+                    m_Tanks[i].DisableControl();
+                    break;
+                }
+            }
+            if (m_Tanks[i].m_PlayerNumber == 4)
+            {
+                if (PlayerPrefs.GetInt("PlayerFourJoined") == 0)
+                {
+                    Debug.Log("excluding " + m_Tanks[i].m_PlayerNumber);
+                    m_Tanks[i].DisableControl();
+                    break;
+                }
+            }
             m_Tanks[i].Reset();
         }
     }
