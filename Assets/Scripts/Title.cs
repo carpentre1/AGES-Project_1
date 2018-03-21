@@ -87,7 +87,7 @@ public class Title : MonoBehaviour {
                 playerOneJoined = true;
             }
         }
-        if(Input.GetButtonDown("Cancel") && currentScreen == "Main Menu")//back button is 1, 2 on ps4
+        if(Input.GetButtonDown("Cancel") && currentScreen == "Main Menu")//back button is 1 on xbox, 2 on ps4. fire is 0 on xbox, 1 on ps4
         {
             creditsPanel.SetActive(false);
             audioPanel.SetActive(false);
@@ -179,7 +179,7 @@ public class Title : MonoBehaviour {
 
     IEnumerator AxisInputDelay(int player)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.5f);
         switch (player)
         {
             case 1: playerOneInputDisabled = false; break;
