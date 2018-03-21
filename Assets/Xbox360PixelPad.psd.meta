@@ -1,0 +1,645 @@
+fileFormatVersion: 2
+guid: 3800322fed0115147b834d7e1c19c4d7
+timeCreated: 1521573794
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Xbox360PixelPad_0
+    21300002: Xbox360PixelPad_1
+    21300004: Xbox360PixelPad_2
+    21300006: Xbox360PixelPad_3
+    21300008: Xbox360PixelPad_4
+    21300010: Xbox360PixelPad_5
+    21300012: Xbox360PixelPad_6
+    21300014: Xbox360PixelPad_7
+    21300016: Xbox360PixelPad_8
+    21300018: Xbox360PixelPad_9
+    21300020: Xbox360PixelPad_10
+    21300022: Xbox360PixelPad_11
+    21300024: Xbox360PixelPad_12
+    21300026: Xbox360PixelPad_13
+    21300028: Xbox360PixelPad_14
+    21300030: Xbox360PixelPad_15
+    21300032: Xbox360PixelPad_16
+    21300034: Xbox360PixelPad_17
+    21300036: Xbox360PixelPad_18
+    21300038: Xbox360PixelPad_19
+    21300040: Xbox360PixelPad_20
+    21300042: Xbox360PixelPad_21
+    21300044: Xbox360PixelPad_22
+    21300046: Xbox360PixelPad_23
+    21300048: Xbox360PixelPad_24
+    21300050: Xbox360PixelPad_25
+    21300052: Xbox360PixelPad_26
+    21300054: Xbox360PixelPad_27
+    21300056: Xbox360PixelPad_28
+    21300058: Xbox360PixelPad_29
+    21300060: Xbox360PixelPad_30
+    21300062: Xbox360PixelPad_31
+    21300064: Xbox360PixelPad_32
+    21300066: Xbox360PixelPad_33
+    21300068: Xbox360PixelPad_34
+    21300070: Xbox360PixelPad_35
+    21300072: Xbox360PixelPad_36
+    21300074: Xbox360PixelPad_37
+    21300076: Xbox360PixelPad_38
+    21300078: Xbox360PixelPad_39
+    21300080: Xbox360PixelPad_40
+    21300082: Xbox360PixelPad_41
+    21300084: Xbox360PixelPad_42
+    21300086: Xbox360PixelPad_43
+    21300088: Xbox360PixelPad_44
+    21300090: Xbox360PixelPad_45
+    21300092: Xbox360PixelPad_46
+    21300094: Xbox360PixelPad_47
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: -1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 102, y: 34, z: 170, w: 34}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Xbox360PixelPad_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 68
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 68
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 68
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 68
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 68
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_5
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 68
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_6
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 68
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_7
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 68
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_8
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 68
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 34
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_10
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 34
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_11
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 34
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_12
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 34
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_13
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 34
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_14
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 34
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_15
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 34
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_16
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 34
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_17
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 34
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_19
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_20
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_21
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 0
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_22
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 0
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_23
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_24
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 0
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_25
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 0
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Xbox360PixelPad_26
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 0
+        width: 34
+        height: 34
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline:
+    - - {x: -142, y: -27}
+      - {x: -149, y: -36}
+      - {x: -149, y: -49}
+      - {x: -147, y: -51}
+      - {x: -129, y: -51}
+      - {x: -127, y: -43}
+      - {x: -127, y: -31}
+      - {x: -132, y: -27}
+    - - {x: 123, y: 51}
+      - {x: 116, y: 40}
+      - {x: 115, y: -6}
+      - {x: 120, y: -12}
+      - {x: 62, y: -14}
+      - {x: 62, y: -51}
+      - {x: 153, y: -51}
+      - {x: 153, y: 48}
+      - {x: 148, y: 51}
+    - - {x: -120, y: -37}
+      - {x: -121, y: -39}
+      - {x: -121, y: -44}
+      - {x: -120, y: -46}
+      - {x: -109, y: -46}
+      - {x: -108, y: -44}
+      - {x: -108, y: -37}
+    - - {x: -59, y: -37}
+      - {x: -104, y: -37}
+      - {x: -107, y: -38}
+      - {x: -107, y: -44}
+      - {x: -105, y: -46}
+      - {x: -60, y: -46}
+      - {x: -57, y: -45}
+      - {x: -57, y: -39}
+    - - {x: -56, y: -37}
+      - {x: -56, y: -46}
+      - {x: 39, y: -46}
+      - {x: 41, y: -45}
+      - {x: 41, y: -39}
+      - {x: 40, y: -37}
+    - - {x: -121, y: -28}
+      - {x: -121, y: -37}
+      - {x: -97, y: -37}
+      - {x: -96, y: -35}
+      - {x: -99, y: -28}
+    - - {x: -94, y: -28}
+      - {x: -95, y: -29}
+      - {x: -95, y: -35}
+      - {x: -94, y: -37}
+      - {x: -79, y: -37}
+      - {x: -78, y: -35}
+      - {x: -78, y: -28}
+    - - {x: -77, y: -28}
+      - {x: -77, y: -37}
+      - {x: -55, y: -37}
+      - {x: -54, y: -36}
+      - {x: -54, y: -30}
+      - {x: -55, y: -28}
+    - - {x: -37, y: -28}
+      - {x: -51, y: -28}
+      - {x: -53, y: -29}
+      - {x: -53, y: -37}
+      - {x: -37, y: -37}
+      - {x: -35, y: -34}
+      - {x: -35, y: -29}
+    - - {x: -33, y: -28}
+      - {x: -34, y: -29}
+      - {x: -34, y: -37}
+      - {x: 1, y: -37}
+      - {x: 2, y: -34}
+      - {x: 2, y: -29}
+      - {x: 1, y: -28}
+    - - {x: -13, y: 51}
+      - {x: -16, y: 46}
+      - {x: -19, y: 39}
+      - {x: -19, y: 29}
+      - {x: -16, y: 22}
+      - {x: -20, y: 21}
+      - {x: -20, y: 47}
+      - {x: -22, y: 51}
+      - {x: -94, y: 51}
+      - {x: -150, y: 19}
+      - {x: -153, y: 13}
+      - {x: -153, y: -17}
+      - {x: -149, y: -19}
+      - {x: 38, y: -19}
+      - {x: 53, y: -18}
+      - {x: 53, y: 48}
+      - {x: 43, y: 51}
+    - - {x: 64, y: 12}
+      - {x: 56, y: 7}
+      - {x: 56, y: -7}
+      - {x: 64, y: -13}
+      - {x: 70, y: -13}
+      - {x: 81, y: -6}
+      - {x: 81, y: 3}
+      - {x: 76, y: 12}
+    - - {x: 101, y: 12}
+      - {x: 90, y: 1}
+      - {x: 90, y: -6}
+      - {x: 100, y: -13}
+      - {x: 109, y: -13}
+      - {x: 115, y: -7}
+      - {x: 115, y: 6}
+      - {x: 107, y: 12}
+    - - {x: -153, y: 48}
+      - {x: -153, y: 20}
+      - {x: -84, y: 20}
+      - {x: -83, y: 21}
+      - {x: -83, y: 48}
+    - - {x: 62, y: 46}
+      - {x: 56, y: 37}
+      - {x: 56, y: 26}
+      - {x: 60, y: 22}
+      - {x: 64, y: 21}
+      - {x: 77, y: 21}
+      - {x: 81, y: 28}
+      - {x: 81, y: 37}
+      - {x: 70, y: 46}
+    - - {x: 95, y: 46}
+      - {x: 90, y: 40}
+      - {x: 90, y: 32}
+      - {x: 99, y: 21}
+      - {x: 108, y: 21}
+      - {x: 115, y: 31}
+      - {x: 115, y: 40}
+      - {x: 109, y: 46}
+    - - {x: -50.730156, y: -19.338623}
+      - {x: -50.91005, y: 17}
+      - {x: -17.98941, y: 17}
+      - {x: -17.629623, y: -19.338623}
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
