@@ -7,12 +7,22 @@ public class ShellExplosion : MonoBehaviour
     public AudioSource m_ExplosionAudio;              
     public float m_MaxDamage = 100f;                  
     public float m_ExplosionForce = 1000f;            
-    public float m_MaxLifeTime = 2f;                  
-    public float m_ExplosionRadius = 5f;              
+    public float m_MaxLifeTime = 6f;                  
+    public float m_ExplosionRadius = 5f;
+
+    public Rigidbody owner;
 
 
     private void Start()
     {
+        if(GetComponentInParent<TankShooting>().weaponType == 1)
+        {
+            m_ExplosionRadius = 2f;
+        }
+        if (GetComponentInParent<TankShooting>().weaponType == 3)
+        {
+            m_ExplosionRadius = 10f;
+        }
         Destroy(gameObject, m_MaxLifeTime);
     }
 

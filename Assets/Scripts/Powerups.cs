@@ -23,9 +23,11 @@ public class Powerups : MonoBehaviour {
     {
         if(powerupType == Type.Jump)
         {
-            other.GetComponent<TankMovement>().Jump(jumpStrength);
-            ResetPowerup();
-
+            if(other.GetComponent<TankMovement>())
+            {
+                other.GetComponent<TankMovement>().Jump(jumpStrength);
+                ResetPowerup();
+            }
         }
     }
 

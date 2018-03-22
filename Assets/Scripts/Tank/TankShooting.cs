@@ -20,8 +20,10 @@ public class TankShooting : MonoBehaviour
     private float m_ChargeSpeed;         
     private bool m_Fired;
 
-    int weaponType = 2;//1 is triple shot, 2 is cannon, 3 is artillery
+    public int weaponType = 2;//1 is triple shot, 2 is cannon, 3 is artillery
 
+    Transform leftTransform;
+    Transform rightTransform;
 
     private void OnEnable()
     {
@@ -39,7 +41,6 @@ public class TankShooting : MonoBehaviour
         if(m_PlayerNumber == 1)
         {
             weaponType = PlayerPrefs.GetInt("PlayerOneWeapon");
-            Debug.Log("weapon type " + PlayerPrefs.GetInt("PlayerOneWeapon"));
         }
         if (m_PlayerNumber == 2)
         {
@@ -52,6 +53,24 @@ public class TankShooting : MonoBehaviour
         if (m_PlayerNumber == 4)
         {
             weaponType = PlayerPrefs.GetInt("PlayerFourWeapon");
+        }
+        if(weaponType == 1)
+        {
+            m_MinLaunchForce = 10f;
+            m_MaxLaunchForce = 16f;
+            m_MaxChargeTime = .4f;
+        }
+        if (weaponType == 2)
+        {
+            m_MinLaunchForce = 12f;
+            m_MaxLaunchForce = 25f;
+            m_MaxChargeTime = .5f;
+        }
+        if (weaponType == 3)
+        {
+            m_MinLaunchForce = 15f;
+            m_MaxLaunchForce = 30f;
+            m_MaxChargeTime = .6f;
         }
     }
     
@@ -96,9 +115,45 @@ public class TankShooting : MonoBehaviour
         // Instantiate and launch the shell.
         m_Fired = true;
 
-        Rigidbody shellInstance = Instantiate(m_Shell, m_FireTransform.position, m_FireTransform.rotation) as Rigidbody;
+        Rigidbody shellInstance = Instantiate(m_Shell, m_FireTransform.position, m_FireTransform.rotation, this.gameObject.transform) as Rigidbody;
+        if (weaponType == 3)
+        {
+            Transform artilleryTransform = m_FireTransform;
+            Debug.Log("before" + artilleryTransform.transform.rotation);
+            artilleryTransform.transform.Rotate(-40, 0, 0);
+            Debug.Log("after rotation" + artilleryTransform.transform.rotation);
+            shellInstance.velocity = m_CurrentLaunchForce * artilleryTransform.forward * 1.5f;
+            artilleryTransform.transform.Rotate(40, 0, 0);//it kept preserving the rotation no matter what i tried, so this is my fix for preventing each shot from being more heavily rotated than the last
+            Debug.Log("end" + artilleryTransform.transform.rotation);
+        }
+        if(weaponType == 2)
+        {
+            shellInstance.velocity = m_CurrentLaunchForce * m_FireTransform.forward * 1.5f;
+        }
+        if (weaponType == 1)
+        {
+            shellInstance.velocity = m_CurrentLaunchForce * m_FireTransform.forward * 1.5f;
 
-        shellInstance.velocity = m_CurrentLaunchForce * m_FireTransform.forward;
+            Vector3 sidePosition = m_FireTransform.position + new Vector3(2f, 0, 0);
+            Transform sideTransform = m_FireTransform;
+            sideTransform.transform.Translate(-2, 0, 0);
+            Rigidbody shellInstanceLeft = Instantiate(m_Shell, sideTransform.position, m_FireTransform.rotation, this.gameObject.transform) as Rigidbody;
+            sideTransform.transform.Translate(2, 0, 0);
+
+            sideTransform.transform.Rotate(0, -20, 0);//left
+            shellInstanceLeft.velocity = m_CurrentLaunchForce * sideTransform.forward * 1.5f;
+            sideTransform.transform.Rotate(0, 20, 0);
+
+            sidePosition = m_FireTransform.position + new Vector3(-2f, 0, 0);
+            sideTransform = m_FireTransform;
+            sideTransform.transform.Translate(2, 0, 0);
+            Rigidbody shellInstanceRight = Instantiate(m_Shell, sideTransform.position, m_FireTransform.rotation, this.gameObject.transform) as Rigidbody;
+            sideTransform.transform.Translate(-2, 0, 0);
+
+            sideTransform.transform.Rotate(0, 20, 0);//right
+            shellInstanceRight.velocity = m_CurrentLaunchForce * sideTransform.forward * 1.5f;
+            sideTransform.transform.Rotate(0, -20, 0);
+        }
         m_ShootingAudio.clip = m_FireClip;
         m_ShootingAudio.Play();
 
