@@ -10,14 +10,21 @@ public class ShellExplosion : MonoBehaviour
     public float m_MaxLifeTime = 6f;                  
     public float m_ExplosionRadius = 5f;
 
+    private float m_OriginalPitch;
+    private float m_PitchRange = 0.3f;
+
     public Rigidbody owner;
 
 
     private void Start()
     {
-        if(GetComponentInParent<TankShooting>().weaponType == 1)
+        m_OriginalPitch = m_ExplosionAudio.pitch;
+
+        if (GetComponentInParent<TankShooting>().weaponType == 1)
         {
             m_ExplosionRadius = 2f;
+            var emitParams = new ParticleSystem.EmitParams();
+            emitParams.startSize = 10f;
         }
         if (GetComponentInParent<TankShooting>().weaponType == 3)
         {
@@ -48,9 +55,27 @@ public class ShellExplosion : MonoBehaviour
             float damage = CalculateDamage(targetRigidbody.position);
             targetHealth.TakeDamage(damage);
         }
-
+        if (GetComponentInParent<TankShooting>().weaponType == 1)//tiny explosions for triple shot
+        {
+            var emitParams = new ParticleSystem.EmitParams();
+            emitParams.startSize = .1f;
+            m_ExplosionParticles.Emit(emitParams, 10);
+            m_ExplosionAudio.volume = .3f;
+        }
+        if (GetComponentInParent<TankShooting>().weaponType == 2)//play the regular explosion for cannon shots
+        {
+            m_ExplosionParticles.Play();
+        }
+        if (GetComponentInParent<TankShooting>().weaponType == 3)//huge explosions for artillery shots
+        {
+            var emitParams = new ParticleSystem.EmitParams();
+            emitParams.startSize = 10f;
+            m_ExplosionParticles.Emit(emitParams, 10);
+            m_ExplosionAudio.volume = 1.3f;
+        }
         m_ExplosionParticles.transform.parent = null;
-        m_ExplosionParticles.Play();
+        //m_ExplosionParticles.Play();
+        m_ExplosionAudio.pitch = Random.Range(m_OriginalPitch - m_PitchRange, m_OriginalPitch + m_PitchRange);
         m_ExplosionAudio.Play();
         Destroy(m_ExplosionParticles.gameObject, m_ExplosionParticles.duration);
         Destroy(gameObject);

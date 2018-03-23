@@ -33,13 +33,25 @@ public class Title : MonoBehaviour {
     string currentScreen = "Main Menu";
 
 
+    public AudioClip navigation;
+    public AudioClip navigationSelect;
+
+    public AudioClip playerJoined;
+    public AudioClip readyToStart;
+    public AudioClip starting;
+    public AudioClip WeaponSelect;
+
+    public AudioSource a_playerJoined;
+    public AudioSource a_readyToStart;
+    public AudioSource a_starting;
+    public AudioSource a_WeaponSelect;
+
     #region game objects
     public GameObject mainMenu;
     public GameObject playerPanels;
     public GameObject creditsPanel;
     public GameObject audioPanel;
     public GameObject pressStartPanel; bool panelShown = false;
-    public GameObject variableRetainer;
 
     public GameObject playerPanel1;
     public GameObject playerPanel2;
@@ -97,13 +109,7 @@ public class Title : MonoBehaviour {
         }
     }
 
-    public void StartGame()//when on join screen and someone presses start on their controller, switch scenes to the game
-    {
-        //import which players are active and what weapons they're using to tankmanager?
-        //load scene
-    }
-
-    void ShowWeaponPanel(GameObject playerPanel)
+    void ShowWeaponPanel(GameObject playerPanel)//hides "A to join" and shows weapon selection UI
     {
         foreach (Transform child in playerPanel.transform)
         {
@@ -118,13 +124,22 @@ public class Title : MonoBehaviour {
         }
     }
 
+
     void Update() {//listen for inputs from each controller, let players join if they press A, let them choose their weapon with left/right, start game if they push start button
+
+        if (Input.GetKeyDown("escape"))
+        {
+            Application.Quit();
+            Debug.Log("this button quits when in a build rather than editor");
+        }
+
         if (Input.GetButtonDown("Fire1"))
         {
             Debug.Log("player 1");
             if (!playerOneJoined && currentScreen == "Join")
             {
                 playerOneJoined = true;
+                a_playerJoined.Play();
                 numPlayers += 1;
                 ShowWeaponPanel(playerPanel1);
             }
@@ -141,6 +156,7 @@ public class Title : MonoBehaviour {
             if (!playerTwoJoined && currentScreen == "Join")
             {
                 playerTwoJoined = true;
+                a_playerJoined.Play();
                 numPlayers += 1;
                 ShowWeaponPanel(playerPanel2);
             }
@@ -151,6 +167,7 @@ public class Title : MonoBehaviour {
             if (!playerThreeJoined && currentScreen == "Join")
             {
                 playerThreeJoined = true;
+                a_playerJoined.Play();
                 numPlayers += 1;
                 ShowWeaponPanel(playerPanel3);
             }
@@ -161,6 +178,7 @@ public class Title : MonoBehaviour {
             if (!playerFourJoined && currentScreen == "Join")
             {
                 playerFourJoined = true;
+                a_playerJoined.Play();
                 numPlayers += 1;
                 ShowWeaponPanel(playerPanel4);
             }
@@ -168,24 +186,25 @@ public class Title : MonoBehaviour {
         if (numPlayers >= 2 && !panelShown)
         {
             pressStartPanel.SetActive(true);
-            Debug.Log("show it");
+            a_readyToStart.Play();
             panelShown = true;
         }
         if (Input.GetButtonDown("Start") && numPlayers >= 2)
         {
             Debug.Log("start " + numPlayers + playerOneJoined + playerTwoJoined + playerThreeJoined + playerFourJoined);
+            a_starting.Play();
             pressStartPanel.SetActive(true);
             SceneManager.LoadScene(1);
         }
 
 
         #region move left or right to choose weapon
-        //there's clearly some better way to do this but i can't figure it out
+        //there's clearly some better way to do this but making this mess was quicker than figuring it all out
         //player 1
         if (Input.GetAxis("Horizontal1") >= .8 && currentScreen == "Join" && !playerOneInputDisabled)
         {
             playerOneWeapon = (WeaponType)Mathf.Min((float)playerOneWeapon + 1, 3);
-            //UI move noise
+            a_WeaponSelect.Play();
             weaponText1.GetComponent<Text>().text = WeaponText(false, playerOneWeapon);
             weaponInfoText1.GetComponent<Text>().text = WeaponText(true, playerOneWeapon);
             playerOneInputDisabled = true;
@@ -194,7 +213,7 @@ public class Title : MonoBehaviour {
         if (Input.GetAxis("Horizontal1") <= -.8 && currentScreen == "Join" && !playerOneInputDisabled)
         {
             playerOneWeapon = (WeaponType)Mathf.Max((float)playerOneWeapon - 1, 1);
-            //UI move noise
+            a_WeaponSelect.Play();
             weaponText1.GetComponent<Text>().text = WeaponText(false, playerOneWeapon);
             weaponInfoText1.GetComponent<Text>().text = WeaponText(true, playerOneWeapon);
             playerOneInputDisabled = true;
@@ -204,14 +223,14 @@ public class Title : MonoBehaviour {
         if (Input.GetAxis("Horizontal2") >= .8 && currentScreen == "Join" && !playerTwoInputDisabled)
         {
             playerTwoWeapon = (WeaponType)Mathf.Min((float)playerTwoWeapon + 1, 3);
-            //UI move noise
+            a_WeaponSelect.Play();
             weaponText2.GetComponent<Text>().text = WeaponText(false, playerTwoWeapon);
             weaponInfoText2.GetComponent<Text>().text = WeaponText(true, playerTwoWeapon);
         }
         if (Input.GetAxis("Horizontal2") <= -.8 && currentScreen == "Join" && !playerTwoInputDisabled)
         {
             playerTwoWeapon = (WeaponType)Mathf.Max((float)playerTwoWeapon - 1, 1);
-            //UI move noise
+            a_WeaponSelect.Play();
             weaponText2.GetComponent<Text>().text = WeaponText(false, playerTwoWeapon);
             weaponInfoText2.GetComponent<Text>().text = WeaponText(true, playerTwoWeapon);
         }
@@ -219,14 +238,14 @@ public class Title : MonoBehaviour {
         if (Input.GetAxis("Horizontal3") >= .8 && currentScreen == "Join" && !playerThreeInputDisabled)
         {
             playerThreeWeapon = (WeaponType)Mathf.Min((float)playerThreeWeapon + 1, 3);
-            //UI move noise
+            a_WeaponSelect.Play();
             weaponText3.GetComponent<Text>().text = WeaponText(false, playerThreeWeapon);
             weaponInfoText3.GetComponent<Text>().text = WeaponText(true, playerThreeWeapon);
         }
         if (Input.GetAxis("Horizontal3") <= -.8 && currentScreen == "Join" && !playerThreeInputDisabled)
         {
             playerThreeWeapon = (WeaponType)Mathf.Max((float)playerThreeWeapon - 1, 1);
-            //UI move noise
+            a_WeaponSelect.Play();
             weaponText3.GetComponent<Text>().text = WeaponText(false, playerThreeWeapon);
             weaponInfoText3.GetComponent<Text>().text = WeaponText(true, playerThreeWeapon);
         }
@@ -234,13 +253,13 @@ public class Title : MonoBehaviour {
         if (Input.GetAxis("Horizontal4") >= .8 && currentScreen == "Join" && !playerFourInputDisabled)
         {
             playerFourWeapon = (WeaponType)Mathf.Min((float)playerFourWeapon + 1, 3);
-            //UI move noise
+            a_WeaponSelect.Play();
             weaponText4.GetComponent<Text>().text = WeaponText(false, playerFourWeapon);
         }
         if (Input.GetAxis("Horizontal4") <= -.8 && currentScreen == "Join" && !playerFourInputDisabled)
         {
             playerFourWeapon = (WeaponType)Mathf.Max((float)playerFourWeapon - 1, 1);
-            //UI move noise
+            a_WeaponSelect.Play();
             weaponText4.GetComponent<Text>().text = WeaponText(false, playerFourWeapon);
             weaponInfoText4.GetComponent<Text>().text = WeaponText(true, playerFourWeapon);
         }
@@ -264,13 +283,13 @@ public class Title : MonoBehaviour {
         if (isDescription)//if it's the description under the weapon
             if (weapon == WeaponType.Triple)
             {
-                return "Fires a spread of 3 shots.\nShort range, low damage.";
+                return "Fires a spread of 3 shots.\nShort range, small explosions.";
             }
             else if (weapon == WeaponType.Cannon)
             {
-                return "Rapidly fires single shots.\nMedium range and damage.";
+                return "Medium range and explosion size.";
             }
-            else return "Slowly fires shots with enormous explosions.\nLong range, high damage.";
+            else return "Long range shots with enormous explosions.";
         else//if it's the name of the weapon itself
         {
             if (weapon == WeaponType.Triple)

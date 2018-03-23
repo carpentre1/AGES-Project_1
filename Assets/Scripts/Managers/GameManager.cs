@@ -32,6 +32,15 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GameLoop());
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown("escape"))
+        {
+            Application.Quit();
+            Debug.Log("this button quits when in a build rather than editor");
+        }
+    }
+
 
     private void SpawnAllTanks()
     {
