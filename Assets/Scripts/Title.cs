@@ -33,13 +33,6 @@ public class Title : MonoBehaviour {
     string currentScreen = "Main Menu";
 
 
-    public AudioClip navigation;
-    public AudioClip navigationSelect;
-
-    public AudioClip playerJoined;
-    public AudioClip readyToStart;
-    public AudioClip starting;
-    public AudioClip WeaponSelect;
 
     public AudioSource a_playerJoined;
     public AudioSource a_readyToStart;
@@ -226,6 +219,8 @@ public class Title : MonoBehaviour {
             a_WeaponSelect.Play();
             weaponText2.GetComponent<Text>().text = WeaponText(false, playerTwoWeapon);
             weaponInfoText2.GetComponent<Text>().text = WeaponText(true, playerTwoWeapon);
+            playerTwoInputDisabled = true;
+            StartCoroutine(AxisInputDelay(2));
         }
         if (Input.GetAxis("Horizontal2") <= -.8 && currentScreen == "Join" && !playerTwoInputDisabled)
         {
@@ -233,6 +228,8 @@ public class Title : MonoBehaviour {
             a_WeaponSelect.Play();
             weaponText2.GetComponent<Text>().text = WeaponText(false, playerTwoWeapon);
             weaponInfoText2.GetComponent<Text>().text = WeaponText(true, playerTwoWeapon);
+            playerTwoInputDisabled = true;
+            StartCoroutine(AxisInputDelay(2));
         }
         //player 3
         if (Input.GetAxis("Horizontal3") >= .8 && currentScreen == "Join" && !playerThreeInputDisabled)
@@ -241,6 +238,8 @@ public class Title : MonoBehaviour {
             a_WeaponSelect.Play();
             weaponText3.GetComponent<Text>().text = WeaponText(false, playerThreeWeapon);
             weaponInfoText3.GetComponent<Text>().text = WeaponText(true, playerThreeWeapon);
+            playerThreeInputDisabled = true;
+            StartCoroutine(AxisInputDelay(3));
         }
         if (Input.GetAxis("Horizontal3") <= -.8 && currentScreen == "Join" && !playerThreeInputDisabled)
         {
@@ -248,6 +247,8 @@ public class Title : MonoBehaviour {
             a_WeaponSelect.Play();
             weaponText3.GetComponent<Text>().text = WeaponText(false, playerThreeWeapon);
             weaponInfoText3.GetComponent<Text>().text = WeaponText(true, playerThreeWeapon);
+            playerThreeInputDisabled = true;
+            StartCoroutine(AxisInputDelay(3));
         }
         //player 4
         if (Input.GetAxis("Horizontal4") >= .8 && currentScreen == "Join" && !playerFourInputDisabled)
@@ -255,6 +256,8 @@ public class Title : MonoBehaviour {
             playerFourWeapon = (WeaponType)Mathf.Min((float)playerFourWeapon + 1, 3);
             a_WeaponSelect.Play();
             weaponText4.GetComponent<Text>().text = WeaponText(false, playerFourWeapon);
+            playerFourInputDisabled = true;
+            StartCoroutine(AxisInputDelay(4));
         }
         if (Input.GetAxis("Horizontal4") <= -.8 && currentScreen == "Join" && !playerFourInputDisabled)
         {
@@ -262,6 +265,8 @@ public class Title : MonoBehaviour {
             a_WeaponSelect.Play();
             weaponText4.GetComponent<Text>().text = WeaponText(false, playerFourWeapon);
             weaponInfoText4.GetComponent<Text>().text = WeaponText(true, playerFourWeapon);
+            playerFourInputDisabled = true;
+            StartCoroutine(AxisInputDelay(4));
         }
     }
 

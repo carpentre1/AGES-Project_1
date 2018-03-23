@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     private TankManager m_RoundWinner;
     private TankManager m_GameWinner;
 
+    public AudioSource a_winRound;
+    public AudioSource a_winGame;
+
 
     private void Start()
     {
@@ -161,6 +164,14 @@ public class GameManager : MonoBehaviour
         m_GameWinner = GetGameWinner();
         string message = EndMessage();
         m_MessageText.text = message;
+        if(m_GameWinner != null)
+        {
+            a_winGame.Play();
+        }
+        else
+        {
+            a_winRound.Play();
+        }
 
         yield return m_EndWait;
     }
@@ -182,6 +193,7 @@ public class GameManager : MonoBehaviour
 
     private TankManager GetRoundWinner()
     {
+        a_winRound.Play();
         for (int i = 0; i < m_Tanks.Length; i++)
         {
             if (m_Tanks[i].m_Instance.activeSelf)
