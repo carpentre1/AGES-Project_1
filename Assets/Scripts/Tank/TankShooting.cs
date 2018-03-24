@@ -117,14 +117,14 @@ public class TankShooting : MonoBehaviour
         m_Fired = true;
 
         Rigidbody shellInstance = Instantiate(m_Shell, m_FireTransform.position, m_FireTransform.rotation, this.gameObject.transform) as Rigidbody;
-        if (weaponType == 3)
+        if (weaponType == 3)//if it's the artillery weapon, arc shots upwards
         {
             Transform artilleryTransform = m_FireTransform;
             Debug.Log("before" + artilleryTransform.transform.rotation);
-            artilleryTransform.transform.Rotate(-40, 0, 0);
+            artilleryTransform.transform.Rotate(-60, 0, 0);
             Debug.Log("after rotation" + artilleryTransform.transform.rotation);
             shellInstance.velocity = m_CurrentLaunchForce * artilleryTransform.forward * 1.5f;
-            artilleryTransform.transform.Rotate(40, 0, 0);//it kept preserving the rotation no matter what i tried, so this is my fix for preventing each shot from being more heavily rotated than the last
+            artilleryTransform.transform.Rotate(60, 0, 0);//it kept preserving the rotation no matter what i tried, so this is my fix for preventing each shot from being more heavily rotated than the last
             Debug.Log("end" + artilleryTransform.transform.rotation);
         }
         if(weaponType == 2)

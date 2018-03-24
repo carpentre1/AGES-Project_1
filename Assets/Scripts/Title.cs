@@ -45,6 +45,7 @@ public class Title : MonoBehaviour {
     public GameObject creditsPanel;
     public GameObject audioPanel;
     public GameObject pressStartPanel; bool panelShown = false;
+    public Slider audioSlider;
 
     public GameObject playerPanel1;
     public GameObject playerPanel2;
@@ -61,6 +62,11 @@ public class Title : MonoBehaviour {
     public GameObject weaponInfoText3;
     public GameObject weaponInfoText4;
     #endregion
+
+    public void OnValueChanged()
+    {
+        AudioListener.volume = audioSlider.value;
+    }
 
     void Start() {
         string[] names = Input.GetJoystickNames();
