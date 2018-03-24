@@ -142,6 +142,7 @@ public class Title : MonoBehaviour {
                 numPlayers += 1;
                 ShowWeaponPanel(playerPanel1);
             }
+            //else if (!playerOneJoined && currentScreen != "Join") { StartJoinScreen(); }
         }
         if(Input.GetButtonDown("Cancel") && currentScreen == "Main Menu")//back button is 1 on xbox, 2 on ps4. fire is 0 on xbox, 1 on ps4
         {
@@ -159,6 +160,7 @@ public class Title : MonoBehaviour {
                 numPlayers += 1;
                 ShowWeaponPanel(playerPanel2);
             }
+            //else if (!playerTwoJoined && currentScreen != "Join") { StartJoinScreen(); }
         }
         if (Input.GetButtonDown("Fire3"))
         {
@@ -170,6 +172,7 @@ public class Title : MonoBehaviour {
                 numPlayers += 1;
                 ShowWeaponPanel(playerPanel3);
             }
+            //else if (!playerThreeJoined && currentScreen != "Join") { StartJoinScreen(); }
         }
         if (Input.GetButtonDown("Fire4"))
         {
@@ -181,6 +184,7 @@ public class Title : MonoBehaviour {
                 numPlayers += 1;
                 ShowWeaponPanel(playerPanel4);
             }
+            //else if (!playerFourJoined && currentScreen != "Join") { StartJoinScreen(); }
         }
         if (numPlayers >= 2 && !panelShown)
         {
